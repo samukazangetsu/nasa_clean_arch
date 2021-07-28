@@ -1,10 +1,7 @@
-import 'dart:math';
-
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:nasa_clean_arch/core/errors/failures.dart';
-import 'package:nasa_clean_arch/core/usecase/usecase.dart';
 import 'package:nasa_clean_arch/features/space_media/domain/entities/space_media_entity.dart';
 import 'package:nasa_clean_arch/features/space_media/domain/repositories/space_media_repository.dart';
 import 'package:nasa_clean_arch/features/space_media/domain/usecases/get_space_media_from_date_usecase.dart';
@@ -47,7 +44,7 @@ void main() {
   );
 
   test(
-    'should return a [Failure] when do not succeed',
+    'should return a [ServerException] when do not succeed',
     () async {
       // arramge
       when(() => repository.getSpaceMediaFromDate(tDate))
